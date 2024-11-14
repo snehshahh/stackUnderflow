@@ -121,36 +121,102 @@
       color: #e0e0e0;
     }
 
-    /* Responsive design adjustments */
-    @media (max-width: 767px) {
-      .form-check-inline {
-        display: block;
-        margin-bottom: 10px;
-      }
+   /* Container styles */
+   .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
 
-      .btn-primary {
-        width: 100%;
-      }
+    /* Table responsive styles */
+    .table-responsive {
+      width: 100%;
+      margin-bottom: 1rem;
+      overflow-x: hidden;
+    }
 
-      .table-responsive {
-        margin-top: 20px;
-      }
+    /* Table styles */
+    table {
+      width: 100%;
+      margin-bottom: 1rem;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
 
-      .title {
-        font-size: 1.8rem;
-      }
+    th,
+    td {
+      padding: 0.75rem;
+      vertical-align: top;
+      border-top: 1px solid #dee2e6;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      max-width: 100%;
+      white-space: normal;
+      font-size: 0.875rem;
+    }
 
-      h1 {
-        font-size: 2.2rem;
-      }
+    /* Ensure cells don't get too narrow on small screens */
+    @media (max-width: 768px) {
 
-      .alert {
-        font-size: 1rem;
+      th,
+      td {
+        min-width: 120px;
+        font-size: 0.75rem;
+        padding: 0.5rem;
       }
+    }
 
-      .form-check-label {
-        font-size: 14px;
-      }
+    /* Basic utility classes */
+    .text-center {
+      text-align: center;
+    }
+
+    .mb-4 {
+      margin-bottom: 1.5rem;
+    }
+
+    .mt-3 {
+      margin-top: 1rem;
+    }
+
+    .mt-4 {
+      margin-top: 1.5rem;
+    }
+
+    .text-danger {
+      color: #dc3545;
+    }
+
+    /* Form check styles */
+    .form-check-inline {
+      display: inline-flex;
+      align-items: center;
+      padding-left: 0;
+      margin-right: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Alert styles */
+    .alert {
+      position: relative;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+      border-radius: 0.25rem;
+    }
+
+    /* Flex utilities */
+    .d-flex {
+      display: flex;
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .justify-content-center {
+      justify-content: center;
     }
   </style>
 </head>
