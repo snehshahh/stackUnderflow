@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stack Underflow🫠: Compare Programming Languages</title>
+  <!-- Google Fonts (Roboto) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  
+  <style>
+    /* Base light theme styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f7f7f7;
+      padding-top: 50px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    h1 {
+      font-weight: 700;
+      color: #333;
+    }
+
+    .alert {
+      background-color: #4e73df;
+      color: white;
+      border-radius: 10px;
+    }
+
+    .btn-primary {
+      background-color: #6c5ce7;
+      border-color: #6c5ce7;
+      border-radius: 30px;
+      padding: 10px 30px;
+    }
+
+    .btn-primary:hover {
+      background-color: #5e54e7;
+      border-color: #5e54e7;
+    }
+
+    .form-check-label {
+      font-weight: 500;
+    }
+
+    .table {
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: white;
+    }
+
+    th, td {
+      text-align: center;
+    }
+
+    th {
+      background-color: #4e73df;
+      color: white;
+      border-radius: 10px;
+    }
+
+    td {
+      background-color: #f7f7f7;
+    }
+
+    .table-responsive {
+      margin-top: 30px;
+    }
+
+    .form-check-inline {
+      margin-right: 20px;
+    }
+
+    .text-danger {
+      font-size: 14px;
+    }
+
+    /* Dark theme styles */
+    body.dark-theme {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    body.dark-theme .alert {
+      background-color: #444;
+      color: white;
+    }
+
+    body.dark-theme .btn-primary {
+      background-color: #3d3d3d;
+      border-color: #3d3d3d;
+    }
+
+    body.dark-theme .btn-primary:hover {
+      background-color: #5e54e7;
+      border-color: #5e54e7;
+    }
+
+    body.dark-theme .table {
+      background-color: #333;
+    }
+
+    body.dark-theme th {
+      background-color: #4e73df;
+      color: white;
+    }
+
+    body.dark-theme td {
+      background-color: #222;
+      color: white;
+    }
+    body.dark-theme  h1 {
+      color: white;
+    }
+
+    body.dark-theme .form-check-label {
+      color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container my-5">
+    <div class="text-center mb-4">
+      <button class="btn btn-primary" onclick="toggleTheme()">Toggle Dark/Light Theme 🌙</button>
+    </div>
+
+    <h1 class="text-center mb-4 title">Stack Underflow🫠</h1>
+    
+    <div class="alert alert-primary text-center" role="alert">
+      Select at least two languages to compare:
+    </div>
+    
+    <div class="d-flex justify-content-center mb-4">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="pythonCheckbox" />
+        <label class="form-check-label" for="pythonCheckbox">Python</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="csharpCheckbox" />
+        <label class="form-check-label" for="csharpCheckbox">C#</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="javascriptCheckbox" />
+        <label class="form-check-label" for="javascriptCheckbox">JavaScript</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="typescriptCheckbox" />
+        <label class="form-check-label" for="typescriptCheckbox">TypeScript</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="javaCheckbox" />
+        <label class="form-check-label" for="javaCheckbox">Java</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="goCheckbox" />
+        <label class="form-check-label" for="goCheckbox">Go</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="rustCheckbox" />
+        <label class="form-check-label" for="rustCheckbox">Rust</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="swiftCheckbox" />
+        <label class="form-check-label" for="swiftCheckbox">Swift</label>
+      </div>
+    </div>
+    
+    <div class="text-center">
+      <button class="btn btn-primary" onclick="showComparison()">Compare</button>
+    </div>
+    
+    <div id="error-message" class="text-center text-danger mt-3"></div>
+    
+    <div id="comparison-table" class="table-responsive mt-4" style="display: none;">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Feature</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <!-- JavaScript files -->
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
